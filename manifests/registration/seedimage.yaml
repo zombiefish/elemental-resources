@@ -1,0 +1,21 @@
+apiVersion: elemental.cattle.io/v1beta1
+kind: SeedImage
+metadata:
+  name: fire
+  namespace: fleet-default
+spec:
+  baseImage: https://updates.suse.com/SUSE/Updates/ElementalTeal/5.3/x86_64/update/iso/elemental-teal.x86_64-1.1.4-Build3.2.30.iso
+  cloud-config:
+    write_files:
+      - content: |
+          install:
+            extra-partitions:
+              - size: 1024
+                fs: ext4
+                label: EXTRA_PART
+        path: /etc/elemental/config.yaml
+  registrationRef:
+    apiVersion: elemental.cattle.io/v1beta1
+    kind: MachineRegistration
+    name: fire
+    namespace: fleet-default

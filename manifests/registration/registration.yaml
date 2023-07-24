@@ -1,0 +1,21 @@
+apiVersion: elemental.cattle.io/v1beta1
+kind: MachineRegistration
+metadata:
+  name: fire
+  namespace: fleet-default
+spec:
+  config:
+    cloud-config:
+      users:
+      - name: root
+        passwd: "$6$/OBpzEc039L4Ovc3$xlXHWOm/LLarJB3mILq2IT9g3zr4aRtN6dB5M/RZfUmuaAPZkmo4L/vrJfvnhRPS23KD1NLB/SpOAErl00ShO/"
+    elemental:
+      install:
+        reboot: true
+        device: /dev/vda
+        debug: true
+        config-dir: /etc/elemental
+  machineInventoryLabels:
+    cores: "${System Data/CPU/Total Cores}"
+    memory: "${System Data/Memory/Total Physical Bytes}"
+    registration: fire
