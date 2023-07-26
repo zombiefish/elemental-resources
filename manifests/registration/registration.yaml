@@ -9,6 +9,14 @@ spec:
       users:
       - name: root
         passwd: "$6$/OBpzEc039L4Ovc3$xlXHWOm/LLarJB3mILq2IT9g3zr4aRtN6dB5M/RZfUmuaAPZkmo4L/vrJfvnhRPS23KD1NLB/SpOAErl00ShO/"
+      write_files:
+      - content: |
+          OPTION1="yes"
+          OPTION2="false"
+        path: "/etc/myservice.cond"
+      runcmd:
+      - mkdir -p /usr/local/data
+      - mount /dev/disk/by-label/EXTRA_PART /usr/local/data
     elemental:
       install:
         reboot: true
