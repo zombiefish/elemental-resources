@@ -13,4 +13,4 @@ spec:
       operator: In
       values: [ "2" ]
   clusterTargets:
-    - clusterName: vulcano
+    - clusterName: volcano
