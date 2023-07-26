@@ -13,7 +13,7 @@ spec:
       - content: |
           OPTION1="yes"
           OPTION2="false"
-        path: "/etc/myservice.cond"
+        path: "/etc/myservice.conf"
       runcmd:
       - mkdir -p /usr/local/data
       - mount /dev/disk/by-label/EXTRA_PART /usr/local/data
