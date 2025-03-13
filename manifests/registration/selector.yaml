@@ -10,4 +10,4 @@ spec:
         matchExpressions:
           - key: element
             operator: In
-
+            values: [ 'fire' ]
