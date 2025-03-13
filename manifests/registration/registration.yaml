@@ -8,7 +8,7 @@ spec:
     cloud-config:
       users:
       - name: root
-        passwd: "$6$rounds=4096$NuKWIS3ADW3cFP3Q$2FdZlyREEXQZEz5/yMbfJcax4D9YFLb3nnrvZwldQVB2dkx99I4A3rfrS7iYkt.GUR5RkThwpCjJGkZ/LYk.B/" # mkpasswd --method=SHA-512 --rounds=4096
+        passwd: "$6$rounds=4096$ld4FxYwFfMIh5TkM$3A45NmLlOJ0mlTyXPtDfp.aR7rOfhaZULh6dd93nYwwrpmKAnockBEgZoMt.k7SkTKgDw9dstJAo.kYJsiS.D0" # mkpasswd --method=SHA-512 --rounds=4096
       write_files:
       - content: |
           OPTION1="yes"
