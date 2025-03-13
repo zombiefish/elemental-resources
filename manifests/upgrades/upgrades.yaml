@@ -4,11 +4,11 @@ metadata:
   name: workers-upgrade
   namespace: fleet-default
 spec:
-  managedOSVersionName: "v1.1.5"
+  managedOSVersionName: "v2.1.3"
   cordon: true
   nodeSelector:
     matchExpressions:
-    - key: cores 
+    - key: cores
       operator: In
       values: [ "2" ]
   clusterTargets:
