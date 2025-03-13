@@ -1,14 +1,14 @@
 apiVersion: elemental.cattle.io/v1beta1
 kind: MachineRegistration
 metadata:
-  name: fire
+  name: fire-nodes
   namespace: fleet-default
 spec:
   config:
     cloud-config:
       users:
       - name: root
-        passwd: "$6$/OBpzEc039L4Ovc3$xlXHWOm/LLarJB3mILq2IT9g3zr4aRtN6dB5M/RZfUmuaAPZkmo4L/vrJfvnhRPS23KD1NLB/SpOAErl00ShO/"
+        passwd: "$6$rounds=4096$NuKWIS3ADW3cFP3Q$2FdZlyREEXQZEz5/yMbfJcax4D9YFLb3nnrvZwldQVB2dkx99I4A3rfrS7iYkt.GUR5RkThwpCjJGkZ/LYk.B/" # mkpasswd --method=SHA-512 --rounds=4096
       write_files:
       - content: |
           OPTION1="yes"
@@ -24,6 +24,10 @@ spec:
         debug: true
         config-dir: /etc/elemental
   machineInventoryLabels:
+    element: fire
     cores: "${System Data/CPU/Total Cores}"
     memory: "${System Data/Memory/Total Physical Bytes}"
-    registration: fire
+    manufacturer: "${Product/Vendor}"
+    productName: "${Product/Name}"
+    serialNumber: "${Product/Serial Number}"
+    machineUUID: "${Product/UUID}"

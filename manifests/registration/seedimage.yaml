@@ -4,7 +4,7 @@ metadata:
   name: fire
   namespace: fleet-default
 spec:
-  baseImage: https://updates.suse.com/SUSE/Updates/ElementalTeal/5.3/x86_64/update/iso/elemental-teal.x86_64-1.1.4-Build3.2.30.iso
+  baseImage: registry.suse.com/suse/sl-micro/6.0/baremetal-os-container:2.1.3-4.7
   cloud-config:
     write_files:
       - content: |
@@ -17,5 +17,5 @@ spec:
   registrationRef:
     apiVersion: elemental.cattle.io/v1beta1
     kind: MachineRegistration
-    name: fire
+    name: fire-nodes
     namespace: fleet-default
