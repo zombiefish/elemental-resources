@@ -4,7 +4,8 @@ metadata:
   name: fire
   namespace: fleet-default
 spec:
-  baseImage: registry.suse.com/suse/sl-micro/6.0/baremetal-iso-image:2.1.3-4.7
+  baseImage: registry.suse.com/suse/sl-micro/6.0/baremetal-iso-image:2.1.3-4.3
+  cleanupAfterMinutes: 60
   cloud-config:
     write_files:
       - content: |
