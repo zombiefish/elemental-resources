@@ -1,0 +1,36 @@
+---
+kind: Cluster
+apiVersion: provisioning.cattle.io/v1
+metadata:
+  name: volcano
+  namespace: fleet-default
+spec:
+  kubernetesVersion: v1.29.13+rke2r1
+  rkeConfig:
+    etcd:
+      snapshotRetention: 5
+      snapshotScheduleCron: 0 */5 * * *
+    machineGlobalConfig:
+      cni: calico
+      disable-kube-proxy: false
+      etcd-expose-metrics: false
+    machinePools:
+      - controlPlaneRole: true
+        drainBeforeDelete: true
+        etcdRole: true
+        machineConfigRef:
+          apiVersion: elemental.cattle.io/v1beta1
+          kind: MachineInventorySelectorTemplate
+          name: volcano-pool-cp
+        name: pool-cp
+        quantity: 1
+        unhealthyNodeTimeout: 0s
+      - workerRole: true
+        drainBeforeDelete: true
+        machineConfigRef:
+          apiVersion: elemental.cattle.io/v1beta1
+          kind: MachineInventorySelectorTemplate
+          name: volcano-pool-worker
+        name: pool-worker
+        quantity: 1
+        unhealthyNodeTimeout: 0s
