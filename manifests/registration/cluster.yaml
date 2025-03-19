@@ -23,7 +23,7 @@ spec:
           kind: MachineInventorySelectorTemplate
           name: volcano-pool-cp
         name: pool-cp
-        quantity: 3
+        quantity: 1
         unhealthyNodeTimeout: 0s
       - workerRole: true
         drainBeforeDelete: true
