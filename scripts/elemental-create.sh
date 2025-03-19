@@ -78,7 +78,7 @@ echo "boot ISO: $VM_ISO_PATH"
 
 for vm in `seq 1 $NUMOFVMS` ; do
   vm_name="${VM_PREFIX}${vm}"
-  uuid=$(uuidgen) || error "uuidgen failed"
+  uuid=$(uuidgen  | cut -d '-' -f 1) || error "uuidgen failed"
   echo "Kick off creation of NODE ${vm_name} - ${uuid}"
   sudo virt-install $remote_option \
     -n "${vm_name}-${uuid}" \
