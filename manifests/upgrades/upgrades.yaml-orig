@@ -4,8 +4,7 @@ metadata:
   name: workers-upgrade
   namespace: fleet-default
 spec:
-  osImage: "registry.suse.com/suse/sl-micro/6.1/baremetal-iso-image:latest"
-    # osImage: "registry.suse.com/rancher/sle-micro/5.5:latest"
+  managedOSVersionName: "v2.0.2"
   cordon: true
   nodeSelector:
     matchExpressions:
