@@ -7,6 +7,8 @@ for DOMAIN in `$VIRSH list --title | awk '/elemental/ { print $2 }'`; do
   $VIRSH undefine --remove-all-storage --nvram --domain  ${DOMAIN}
 done
 
+sleep 2
+
 for DOMAIN in `$VIRSH list --all --title | awk '/elemental/ { print $2 }'`; do
   $VIRSH undefine --remove-all-storage --nvram --domain  ${DOMAIN}
 done
