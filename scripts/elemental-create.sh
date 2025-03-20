@@ -93,5 +93,5 @@ for vm in `seq 1 $NUMOFVMS` ; do
     --tpm emulator,backend.version=2.0,model="tpm-crb" \
     --autoconsole "$VM_AUTOCONSOLE" \
     --wait 10 > /dev/null &
-  sleep 3
+  sleep 2
 done

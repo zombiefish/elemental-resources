@@ -1,6 +1,6 @@
 #!/bin/bash
 
-: ${ISO:="fire-nodes-2025-03-19T16_49_31Z.iso"}
+: ${ISO:="fire-nodes-2025-03-20T12_08_23Z.iso"}
 IMG=/export/iso/$ISO
 
 VM_PREFIX="cp-"  VM_NETWORK=default NUMOFVMS=3 VM_CORES=4 VM_MEMORY=8192                ./elemental-create.sh $IMG

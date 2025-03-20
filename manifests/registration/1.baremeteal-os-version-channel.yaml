@@ -1,0 +1,13 @@
+---
+apiVersion: elemental.cattle.io/v1beta1
+kind: ManagedOSVersionChannel
+metadata:
+  labels:
+  name: sl-micro-6.0-baremetal-channel
+  namespace: fleet-default
+spec:
+  deleteNoLongerInSyncVersions: true
+  options:
+    image: registry.suse.com/rancher/elemental-channel/sl-micro:6.0-baremetal
+  syncInterval: 1h
+  type: custom

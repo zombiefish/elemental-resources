@@ -5,7 +5,7 @@ metadata:
   name: volcano
   namespace: fleet-default
 spec:
-  kubernetesVersion: v1.29.13+rke2r1
+  kubernetesVersion: v1.29.14+rke2r1
   rkeConfig:
     etcd:
       snapshotRetention: 5
