@@ -1,0 +1,17 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: elemental-channels
+  namespace: fleet-local
+spec:
+  branch: main
+  paths:
+    - /manifests/registration/
+  repo: https://github.com/zombiefish/elemental-resources
+  targets:
+    - clusterSelector:
+        matchExpressions:
+          - key: provider.cattle.io
+            operator: NotIn
+            values:
+              - harvester
