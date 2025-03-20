@@ -74,13 +74,25 @@ if [ -n "$REMOTE_KVM" ]; then
   VM_ISO_PATH=${VM_STORE}/${VM_ISO_PATH##/*/}
 fi
 
+
+export LIBVIRT_DEFAULT_URI=qemu:///system
+
+VM_START=$(virsh list --title | grep element | grep $VM_PREFIX | awk -F "-" '{print $2}'| sort -n |tail -n 1)
+
+if [[ $VM_START == "" ]]; then
+  VM_START=0
+fi
+
+VM_END=$((VM_START + NUMOFVMS))
+((VM_START++))
+
 echo "boot ISO: $VM_ISO_PATH"
 
-for vm in `seq 1 $NUMOFVMS` ; do
+for vm in `seq $VM_START $VM_END` ; do
   vm_name="${VM_PREFIX}${vm}"
   uuid=$(uuidgen  | cut -d '-' -f 1) || error "uuidgen failed"
   echo "Kick off creation of NODE ${vm_name} - ${uuid}"
-  sudo virt-install $remote_option \
+  virt-install $remote_option \
     -n "${vm_name}-${uuid}" \
     --metadata title="${VM_TITLE} ${vm_name} ${uuid}" \
     --osinfo=${VM_OSINFO} \

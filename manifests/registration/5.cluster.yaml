@@ -32,5 +32,5 @@ spec:
           kind: MachineInventorySelectorTemplate
           name: volcano-pool-worker
         name: pool-worker
-        quantity: 2
+        quantity: 3
         unhealthyNodeTimeout: 0s
