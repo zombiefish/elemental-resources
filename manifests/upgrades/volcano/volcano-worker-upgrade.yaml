@@ -4,11 +4,11 @@ metadata:
   name: workers-upgrade
   namespace: fleet-default
   labels:
-    elemental.cattle.io/managed-os-version-name: baremetal-v2.1.3-4.38-os
+    elemental.cattle.io/managed-os-version-name: baremetal-v2.1.3-4.3-os
 spec:
   clusterTargets:
     - clusterName: volcano
-  managedOSVersionName: baremetal-v2.1.3-4.38-os
+  managedOSVersionName: baremetal-v2.1.3-4.3-os
   drain:
     deleteLocalData: true
     force: true
