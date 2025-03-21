@@ -1,0 +1,21 @@
+apiVersion: elemental.cattle.io/v1beta1
+kind: ManagedOSImage
+metadata:
+  name: workers-upgrade
+  namespace: fleet-default
+  labels:
+    elemental.cattle.io/managed-os-version-name: baremetal-v2.1.3-4.38-os
+spec:
+  clusterTargets:
+    - clusterName: volcano
+  managedOSVersionName: baremetal-v2.1.3-4.38-os
+  drain:
+    deleteLocalData: true
+    force: true
+    ignoreDaemonSets: true
+    skipWaitForDeleteTimeout: 60
+nodeSelector:
+    matchExpressions:
+    - key: cores
+      operator: In
+      values: [ "2" ]
